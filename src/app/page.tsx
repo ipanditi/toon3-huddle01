@@ -16,7 +16,7 @@ const createRandomRoom = async () => {
     }),
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? '',
+      'x-api-key': process.env.NEXT_PUBLIC_API_KEY || '',
     },
     cache: 'no-store',
   });
@@ -28,7 +28,7 @@ const createRandomRoom = async () => {
 export default async function Home() {
   const roomId = await createRandomRoom();
 
-  console.log({roomId});
-  
+  console.log({ roomId });
+
   return <IntroPage roomId={roomId} />;
 }

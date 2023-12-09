@@ -58,14 +58,14 @@ const Lobby = ({ params }: { params: { roomId: string } }) => {
             `https://gamma.iriko.huddle01.com/api/v1/live-meeting/preview-peers?roomId=${params.roomId}`,
             {
               headers: {
-                'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? '',
+                'x-api-key': process.env.NEXT_PUBLIC_API_KEY || '',
               },
             }
           );
           const data = await response.json();
           console.log('data', data.previewPeers.length);
           const accessToken = new AccessToken({
-            apiKey: process.env.NEXT_PUBLIC_API_KEY ?? '',
+            apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
             roomId: params.roomId,
             // role: data.previewPeers.length > 0 ? Role.LISTENER : Role.HOST,
             role: data.previewPeers.length > 0 ? Role.LISTENER : Role.HOST,
@@ -87,7 +87,7 @@ const Lobby = ({ params }: { params: { roomId: string } }) => {
         } catch (error) {
           console.log(error);
           const accessToken = new AccessToken({
-            apiKey: process.env.NEXT_PUBLIC_API_KEY ?? '',
+            apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
             roomId: params.roomId,
             // role: data.previewPeers.length > 0 ? Role.LISTENER : Role.HOST,
             role: Role.HOST,

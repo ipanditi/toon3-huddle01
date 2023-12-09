@@ -23,7 +23,7 @@ const AcceptRequest: React.FC<AcceptRequestProps> = ({
     <div className="inline-flex p-4 flex-col justify-center items-center rounded-lg bg-custom-2">
       <div className="flex flex-col justify-center items-start gap-2">
         <Image
-          src={metadata?.avatarUrl ?? "/avatar/avatars/0.png"}
+          src={metadata?.avatarUrl || "/avatar/avatars/0.png"}
           alt="avatar"
           width={50}
           height={50}

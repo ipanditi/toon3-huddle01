@@ -79,8 +79,8 @@ const EmojiTray: React.FC<Props> = ({ onClick, onClose }) => {
           onClick={(e) => {
             e.stopPropagation();
             updateMetadata({
-              displayName: metadata?.displayName ?? 'Guest',
-              avatarUrl: metadata?.avatarUrl ?? '/avatars/avatars/0.png',
+              displayName: metadata?.displayName || 'Guest',
+              avatarUrl: metadata?.avatarUrl || '/avatars/avatars/0.png',
               isHandRaised: !metadata?.isHandRaised,
             });
           }}
@@ -89,7 +89,7 @@ const EmojiTray: React.FC<Props> = ({ onClick, onClose }) => {
             metadata?.isHandRaised ? 'bg-custom-1' : 'bg-custom-8'
           )}
         >
-          ✋ {metadata?.isHandRaised  ? 'Lower Hand' : 'Raise Hand'}
+          ✋ {metadata?.isHandRaised ? 'Lower Hand' : 'Raise Hand'}
         </button>
         <div className="grid grid-cols-5 place-items-center gap-2">
           {emojis.map((emoji) => (

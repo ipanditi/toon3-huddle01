@@ -49,7 +49,7 @@ const PeerMetaData: React.FC<PeerMetaDatProps> = ({
     <div className={cn(className, 'flex items-center justify-between w-full')}>
       <div className="flex items-center gap-2">
         <Image
-          src={metadata?.avatarUrl ?? '/avatars/avatars/0.png'}
+          src={metadata?.avatarUrl || '/avatars/avatars/0.png'}
           alt="default"
           width={30}
           height={30}
@@ -81,8 +81,8 @@ const PeerMetaData: React.FC<PeerMetaDatProps> = ({
             onClick={() => {
               // if (peerId === localPeerId) {
               updateMetadata({
-                displayName: metadata?.displayName ?? 'Guest',
-                avatarUrl: metadata?.avatarUrl ?? '/avatars/avatars/0.png',
+                displayName: metadata?.displayName || 'Guest',
+                avatarUrl: metadata?.avatarUrl || '/avatars/avatars/0.png',
                 isHandRaised: !metadata?.isHandRaised,
               });
               // }

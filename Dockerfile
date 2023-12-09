@@ -44,7 +44,7 @@
 # CMD ["node_modules/.bin/next", "start"]
 
 # Use the official Node.js 14 image as the base image
-FROM node:14
+FROM node:latest
 
 # Create and set the working directory in the container
 WORKDIR /app

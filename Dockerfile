@@ -1,4 +1,4 @@
-FROM node:latest AS build
+FROM node:18 AS build
 
 # Disable telemetry
 ENV NEXT_TELEMETRY_DISABLED 1

@@ -22,8 +22,7 @@ const createRandomRoom = async () => {
     cache: 'no-store',
   });
   const data = await res.json();
-  const { roomId } = data.data;
-  return roomId;
+  return data.data.roomId;
 };
 
 export default async function Home() {

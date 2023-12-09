@@ -36,12 +36,11 @@ WORKDIR /app
 COPY --from=build /build/next.config.js .
 COPY --from=build /build/public/ ./public
 COPY --from=build /build/.next ./.next
-COPY --from=build /build/node_modules ./node_modules
 
 EXPOSE 3000
 
 # Run app command
-CMD ["node_modules/.bin/next", "start"]
+CMD ["npm","start"]
 
 # # Use the official Node.js 14 image as the base image
 # FROM node:latest

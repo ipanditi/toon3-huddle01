@@ -1,4 +1,5 @@
 // Components
+"use client"
 import IntroPage from '@/components/IntroPage/IntroPage';
 
 interface RoomDetails {

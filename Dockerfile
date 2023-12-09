@@ -36,7 +36,7 @@ WORKDIR /app
 COPY --from=build /build/next.config.js .
 COPY --from=build /build/public/ ./public
 COPY --from=build /build/.next ./.next
-COPY --from=build /dependencies/node_modules ./node_modules
+COPY --from=build /build/node_modules ./node_modules
 
 EXPOSE 3000
 

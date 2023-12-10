@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { usePeerIds, useRemotePeer } from "@huddle01/react/hooks";
+import { usePeerIds, useRemotePeer, useRemoteAudio } from "@huddle01/react/hooks";
 import useStore from "@/store/slices";
 import { Role } from "@huddle01/server-sdk/auth";
 
@@ -16,6 +16,8 @@ const AcceptRequest: React.FC<AcceptRequestProps> = ({
     avatarUrl: string;
     isHandRaised: boolean;
   }>({ peerId });
+
+
 
   const { setShowAcceptRequest, removeRequestedPeers } = useStore();
 

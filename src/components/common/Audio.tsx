@@ -6,10 +6,10 @@ interface IAudioProps {
 
 const Audio: React.FC<
   IAudioProps &
-    React.DetailedHTMLProps<
-      React.AudioHTMLAttributes<HTMLAudioElement>,
-      HTMLAudioElement
-    >
+  React.DetailedHTMLProps<
+    React.AudioHTMLAttributes<HTMLAudioElement>,
+    HTMLAudioElement
+  >
 > = ({ track }) => {
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -27,6 +27,9 @@ const Audio: React.FC<
       audioObj.onloadedmetadata = async () => {
         console.warn("audioCard() | Metadata loaded...");
         try {
+          const audioSrc = audioObj.src;
+          console.log("======AUDIO PATH =======" + audioSrc)
+
           await audioObj.play();
         } catch (error) {
           console.error(error);

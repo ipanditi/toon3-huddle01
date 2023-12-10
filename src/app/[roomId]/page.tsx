@@ -11,6 +11,7 @@ import {
   useRoom,
   useLocalPeer,
   useLocalAudio,
+  useRemoteAudio,
   usePeerIds,
   useHuddle01,
   useDataMessage,
@@ -48,8 +49,18 @@ const Home = ({ params }: { params: { roomId: string } }) => {
   }>();
   const { peerIds } = usePeerIds();
 
+
   const { huddleClient } = useHuddle01();
 
+
+
+
+  const remoteAudio = useRemoteAudio({
+    peerId: requestedPeerId
+  })
+
+
+  console.log('============= Audio State ============' + remoteAudio.state)
   useEffect(() => {
     if (state === 'idle') {
       push(`/${params.roomId}/lobby`);
@@ -75,7 +86,7 @@ const Home = ({ params }: { params: { roomId: string } }) => {
         }, 5000);
       }
 
-      if (label === 'chat' && from !== peerId ) {
+      if (label === 'chat' && from !== peerId) {
         const messagePayload = JSON.parse(payload);
         const newChatMessage = {
           name: messagePayload.name,
@@ -106,7 +117,9 @@ const Home = ({ params }: { params: { roomId: string } }) => {
           )}
         </div>
       </div>
+
       {isChatOpen && <Chat />}
+
       <BottomBar />
       <Prompts />
     </section>
